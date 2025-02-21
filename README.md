@@ -47,6 +47,7 @@
 * **Bootstrap:** For responsive design and styling.
 * **Font Awesome:** For icons.
 * **React Toastify:** For displaying toast notifications.
+* **Unit Testing:** Implemented using Jest and React Testing Library for reliable code.
 
 ### Backend:
 * **Node.js & Express.js:** Core backend framework for handling requests.
@@ -54,6 +55,38 @@
 * **JSON Web Tokens (JWT):** For authentication and authorization.
 * **bcrypt:** For password hashing.
 * **cors:** For handling cross-origin requests.
+
+
+## Testing 🧪
+TradeVerse incorporates unit testing using Jest and React Testing Library to ensure code reliability and maintainability.
+
+* **Unit Tests:**
+    * Comprehensive unit tests are written for key components, such as the `Hero` component within the landing page, to verify their functionality.
+    * Testing ensures that components render correctly, handle user interactions as expected, and maintain consistency across different scenarios.
+
+* **Testing Libraries:**
+    * **Jest:** A JavaScript testing framework used for writing and running unit tests.
+    * **React Testing Library:** A library that provides utilities for testing React components by focusing on user behavior rather than implementation details.
+    * **@testing-library/jest-dom:** Extends Jest with custom matchers for asserting on DOM nodes, making tests more expressive and readable.
+    * **@testing-library/react:** Provides utilities for rendering and interacting with React components in a testing environment.
+    * **@testing-library/user-event:** Simulates user interactions such as clicks, typing, and other events.
+
+Example test snippet:
+```javascript
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import "@testing-library/jest-dom/extend-expect";
+import Hero from "../landing_page/pricing/Hero";
+
+describe('Hero Component', () => {
+    test('renders hero image', () => {
+        render(<Hero />);
+        const heroImage = screen.getByAltText("intradayTradesImg");
+        expect(heroImage).toBeInTheDocument();
+        expect(heroImage).toHaveAttribute('src', 'media/images/intradayTrades.svg');
+    });
+});
+```
 
 
 ## How to Run Locally 🖥️
